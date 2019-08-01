@@ -1,0 +1,36 @@
+.collect-board {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.collect-board .block {
+  flex-basis: 33.33333333%;
+  height: 33.33333333%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.collect-board .block .number {
+  color: #2b3c64;
+  font-size: 23px;
+  background: #fff;
+  box-shadow: 1px 1px 3px 1px #8b8b8b;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  line-height: 66.66px;
+}
+.collect-board .block .number:focus {
+  box-shadow: 1px 5px 8px 3px #8b8b8b;
+  position: relative;
+  left: 0;
+  top: -3px;
+  outline: 0;
+}
+.collect-board .block:nth-child(odd) {
+  background: #dec6d9;
+}
+.collect-board .block:nth-child(even) {
+  background: #a3b6db;
+}
