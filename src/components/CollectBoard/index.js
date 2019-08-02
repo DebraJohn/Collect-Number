@@ -40,6 +40,13 @@ export default class CollectBoard extends React.Component {
     this.eventEmitter = Emitter.addListener('sendNumber', val => {
       this.recievedNewNumber(val);
     });
+    this.deleteListener = Emitter.addListener('deleteNumber', () => {
+      this.setState({
+        blockNum: [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]]
+      })
+    });
 
     // this.timer = setInterval(() => {
     //   this.vacentArea === 0 && clearInterval(this.timer)
