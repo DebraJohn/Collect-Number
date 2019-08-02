@@ -1,14 +1,16 @@
 import React from 'react';
 import './index.css'
+import Emitter from '../../core/event'
+import { saveGame, getGame } from '../../core/storage'
 
 export default class CollectBoard extends React.Component {
   constructor() {
     super();
     this.state = {
-      blockNum: [
-        [1, 1, 2],
-        [4, 0, 0],
-        [0, 0, 8]
+      blockNum: getGame('testPlayer1') || [
+        [1, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
       ],
       toggle: 0
     }
@@ -32,6 +34,9 @@ export default class CollectBoard extends React.Component {
     </div>
   }
   componentDidMount() {
+    this.eventEmitter = Emitter.addListener('sendNumber', val => {
+      this.recievedNewNumber(val);
+    });
   }
   handleChess(v, h) {
     const { toggle } = this.state;
@@ -53,9 +58,32 @@ export default class CollectBoard extends React.Component {
         : [0, blockNum[tX][tY] = targetValue + currentValue][0]
     
     this.setState({ blockNum })
+    saveGame(blockNum)
   }
 
   isArrayEqual(arrA = [], arrB = []) {
     return arrA.toString() === arrB.toString()
+  }
+
+  recievedNewNumber(val) {
+    const { blockNum } = this.state
+    const vacentPos = this.findVacentPos()
+    if (vacentPos) {
+      const x = this.findVacentPos()[0], y = this.findVacentPos()[1]
+      blockNum[x][y] = val;
+      this.setState({ blockNum })
+    } else {
+      // todo
+      console.log('位置已满')
+    }
+  }
+  findVacentPos() {
+    const { blockNum } = this.state
+    for (let i in blockNum) {
+      const result = blockNum[i].findIndex(value => value === 0)
+      if(result !== -1) {
+        return [i, result]
+      }
+    }
   }
 }
