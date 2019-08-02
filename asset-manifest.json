@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Collect-Number/static/css/main.dd8996d6.chunk.css",
-    "main.js": "/Collect-Number/static/js/main.4392d782.chunk.js",
-    "main.js.map": "/Collect-Number/static/js/main.4392d782.chunk.js.map",
+    "main.css": "/Collect-Number/static/css/main.afdfea6b.chunk.css",
+    "main.js": "/Collect-Number/static/js/main.14921bca.chunk.js",
+    "main.js.map": "/Collect-Number/static/js/main.14921bca.chunk.js.map",
     "runtime~main.js": "/Collect-Number/static/js/runtime~main.323d4445.js",
     "runtime~main.js.map": "/Collect-Number/static/js/runtime~main.323d4445.js.map",
     "static/js/2.9651d192.chunk.js": "/Collect-Number/static/js/2.9651d192.chunk.js",
     "static/js/2.9651d192.chunk.js.map": "/Collect-Number/static/js/2.9651d192.chunk.js.map",
     "index.html": "/Collect-Number/index.html",
-    "precache-manifest.0cf0bf833701bb6b83b96d0039e4da29.js": "/Collect-Number/precache-manifest.0cf0bf833701bb6b83b96d0039e4da29.js",
+    "precache-manifest.cebb7852151a1ba4e3ef92220ae12c51.js": "/Collect-Number/precache-manifest.cebb7852151a1ba4e3ef92220ae12c51.js",
     "service-worker.js": "/Collect-Number/service-worker.js",
-    "static/css/main.dd8996d6.chunk.css.map": "/Collect-Number/static/css/main.dd8996d6.chunk.css.map",
+    "static/css/main.afdfea6b.chunk.css.map": "/Collect-Number/static/css/main.afdfea6b.chunk.css.map",
     "static/media/icon.css": "/Collect-Number/static/media/zhurouchang.bce735d3.svg"
   }
 }

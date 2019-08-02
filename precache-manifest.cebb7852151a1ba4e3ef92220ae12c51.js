@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "265ceac2d31edd42560cc62e274ad530",
+    "revision": "55b3012e340f5c3ed6b924775d45a79d",
     "url": "/Collect-Number/index.html"
   },
   {
-    "revision": "ec46f4068ac0a8e3e0c3",
-    "url": "/Collect-Number/static/css/main.dd8996d6.chunk.css"
+    "revision": "f029863d38f515295fa5",
+    "url": "/Collect-Number/static/css/main.afdfea6b.chunk.css"
   },
   {
     "revision": "7f987064b266b1f3007f",
     "url": "/Collect-Number/static/js/2.9651d192.chunk.js"
   },
   {
-    "revision": "ec46f4068ac0a8e3e0c3",
-    "url": "/Collect-Number/static/js/main.4392d782.chunk.js"
+    "revision": "f029863d38f515295fa5",
+    "url": "/Collect-Number/static/js/main.14921bca.chunk.js"
   },
   {
     "revision": "bb9ef4d15814c50a175d",
@@ -82,6 +82,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "52f11945b8805770603bad7363f407b8",
     "url": "/Collect-Number/static/media/songzi.52f11945.svg"
+  },
+  {
+    "revision": "92fda7093eca444b2e4f03532a816ca7",
+    "url": "/Collect-Number/static/media/trashBin.92fda709.svg"
   },
   {
     "revision": "230a9fa34f07e5218d77348019de06e9",
