@@ -1,0 +1,21 @@
+export const numberToIcon = {
+  '1': 'xiaojitui',
+  '2': 'zhenzi',
+  '4': 'shousimianbao',
+  '8': 'bigenguo',
+  '16': 'yaoguo',
+  '32': 'caomei',
+  '64': 'baocuibinggan',
+  '128': 'naiyouxiaweiyiguo',
+  '256': 'mangguo',
+  '512': 'songzi',
+  '1024': 'banli',
+  '2048': 'baiputaogan',
+  '4096': 'hongzao',
+  '8192': 'huafubing',
+  '16384': 'manyuemeiquqi',
+  '32768': 'shanbei',
+  '65536': 'zhurouchang',
+  '131072': 'kaixinguo',
+  '262144': 'guaziren'
+};
