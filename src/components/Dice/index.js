@@ -10,12 +10,22 @@ export default class Dice extends React.Component {
   }
   render() {
     return (
-      <div className="dice" onClick={() => this.summon()}>
-        <i className="icon weibolu" />
+      <div className="topActions">
+        <div className="delete" onClick={() => this.delete()}>
+          <i className="icon trashBin" />
+          <span>重置</span>
+        </div>
+        <div className="dice" onClick={() => this.summon()}>
+          <i className="icon weibolu" />
+          <span>来一发</span>
+        </div>
       </div>
     );
   }
   summon() {
     Emitter.emit('sendNumber', createRandomNumber());
+  }
+  delete() {
+    Emitter.emit('deleteNumber', 'reStart');
   }
 }
