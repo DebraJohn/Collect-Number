@@ -7,7 +7,7 @@ export default class CollectBoard extends React.Component {
     this.state = {
       blockNum: [
         [1, 1, 2],
-        [0, 0, 0],
+        [4, 0, 0],
         [0, 0, 8]
       ],
       toggle: 0
@@ -56,6 +56,6 @@ export default class CollectBoard extends React.Component {
   }
 
   isArrayEqual(arrA = [], arrB = []) {
-    return arrA.sort().toString() === arrB.sort().toString()
+    return arrA.toString() === arrB.toString()
   }
 }
