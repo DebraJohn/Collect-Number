@@ -2,10 +2,13 @@ import React from 'react';
 import './index.css'
 import Emitter from '../../core/event'
 import { saveGame, getGame } from '../../core/storage'
+import { createRandomNumber } from '../../core/chance'
+import { numberToIcon } from './numberToIcon'
 
 export default class CollectBoard extends React.Component {
   constructor() {
     super();
+    this.vacentArea = 9
     this.state = {
       blockNum: getGame('testPlayer1') || [
         [1, 0, 0],
@@ -24,7 +27,7 @@ export default class CollectBoard extends React.Component {
         <div className="block" key={vIndex * 3 + hIndex} onClick={() => this.handleChess(vIndex, hIndex)}>
           { item ? 
             <span className={`number${this.isArrayEqual(this.prevPos, [vIndex, hIndex]) && toggle ? ' lifted': ''}`}>
-              {item}
+              <i className={`icon ${numberToIcon[item]}`}></i>
             </span>
           : '' }
         </div>))
@@ -37,6 +40,11 @@ export default class CollectBoard extends React.Component {
     this.eventEmitter = Emitter.addListener('sendNumber', val => {
       this.recievedNewNumber(val);
     });
+
+    // this.timer = setInterval(() => {
+    //   this.vacentArea === 0 && clearInterval(this.timer)
+    //   this.recievedNewNumber(createRandomNumber())
+    // }, 1000)
   }
   handleChess(v, h) {
     const { toggle } = this.state;
@@ -74,7 +82,7 @@ export default class CollectBoard extends React.Component {
       this.setState({ blockNum })
     } else {
       // todo
-      console.log('位置已满')
+      this.vacentArea = 0
     }
   }
   findVacentPos() {

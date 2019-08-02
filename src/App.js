@@ -2,6 +2,7 @@ import React from 'react';
 import CollectBoard from './components/CollectBoard'
 import Dice from './components/Dice'
 import './App.css'
+import './assets/icon.css'
 
 function App() {
   return (
