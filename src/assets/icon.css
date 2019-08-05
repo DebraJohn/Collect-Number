@@ -72,3 +72,66 @@
 .trashBin {
   background-image: url('./icon/trashBin.svg')
 }
+
+/* food cute */
+
+.avocado {
+  background-image: url('./icon/foodCute/food-avocado.svg')
+}
+.bread {
+  background-image: url('./icon/foodCute/food-bread.svg')
+}
+.cake {
+  background-image: url('./icon/foodCute/food-cake.svg')
+}
+.cashew {
+  background-image: url('./icon/foodCute/food-cashew.svg')
+}
+.chips {
+  background-image: url('./icon/foodCute/food-chips.svg')
+}
+.cookie {
+  background-image: url('./icon/foodCute/food-cookie.svg')
+}
+.doughnut {
+  background-image: url('./icon/foodCute/food-doughnut.svg')
+}
+.eggyolkcake {
+  background-image: url('./icon/foodCute/food-eggyolkcake.svg')
+}
+.hotdog {
+  background-image: url('./icon/foodCute/food-hotdog.svg')
+}
+.macaron {
+  background-image: url('./icon/foodCute/food-macaron.svg')
+}
+.mochi {
+  background-image: url('./icon/foodCute/food-mochi.svg')
+}
+.pecan {
+  background-image: url('./icon/foodCute/food-pecan.svg')
+}
+.pistachio {
+  background-image: url('./icon/foodCute/food-pistachio.svg')
+}
+.pizza {
+  background-image: url('./icon/foodCute/food-pizza.svg')
+}
+.popcorn {
+  background-image: url('./icon/foodCute/food-popcorn.svg')
+}
+.popsicle {
+  background-image: url('./icon/foodCute/food-popsicle.svg')
+}
+.pudding {
+  background-image: url('./icon/foodCute/food-pudding.svg')
+}
+.strawberry {
+  background-image: url('./icon/foodCute/food-strawberry.svg')
+}
+.sushi {
+  background-image: url('./icon/foodCute/food-sushi.svg')
+}
+.taco {
+  background-image: url('./icon/foodCute/food-taco.svg')
+}

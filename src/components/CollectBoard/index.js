@@ -8,7 +8,8 @@ import { numberToIcon } from './numberToIcon'
 export default class CollectBoard extends React.Component {
   constructor() {
     super();
-    this.vacentArea = 9
+    this.colNum = 3
+    this.vacentArea = this.colNum * this.colNum
     this.state = {
       blockNum: getGame('testPlayer1') || [
         [1, 0, 0],
@@ -24,11 +25,13 @@ export default class CollectBoard extends React.Component {
     const { blockNum, toggle } = this.state;
     const blocks = blockNum.map((row, vIndex) => (
       row.map((item, hIndex) => (
-        <div className="block" key={vIndex * 3 + hIndex} onClick={() => this.handleChess(vIndex, hIndex)}>
+        <div className="block" key={vIndex * this.colNum + hIndex} onClick={() => this.handleChess(vIndex, hIndex)}>
           { item ? 
-            <span className={`number${this.isArrayEqual(this.prevPos, [vIndex, hIndex]) && toggle ? ' lifted': ''}`}>
-              <i className={`icon ${numberToIcon[item]}`}></i>
-            </span>
+            <div>
+              <span className={`number${this.isArrayEqual(this.prevPos, [vIndex, hIndex]) && toggle ? ' lifted': ''}`}>
+                <i className={`icon ${numberToIcon[item]}`}></i>
+              </span>
+            </div>
           : '' }
         </div>))
     ))
