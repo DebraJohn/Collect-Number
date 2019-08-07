@@ -66,9 +66,9 @@ export default class CollectBoard extends React.Component {
     if (this.isArrayEqual(currentPos, targetPos)) return // 拿起和放下如果是相同位置 则不处理
 
     const { blockNum } = this.state;
-    const cX = currentPos[0], cY = [currentPos[1]]
-    const tX = targetPos[0], tY = [targetPos[1]]
-    const currentValue = blockNum[cX][cY], targetValue = blockNum[tX][tY]
+    const [ cX, cY ] = currentPos;
+    const [ tX, tY ] = targetPos;
+    const currentValue = blockNum[cX][cY], targetValue = blockNum[tX][tY];
 
     // 相同数字合并，不同数字交换位置
     blockNum[cX][cY] = currentValue !== targetValue 
@@ -87,7 +87,7 @@ export default class CollectBoard extends React.Component {
     const { blockNum } = this.state
     const vacentPos = this.findVacentPos()
     if (vacentPos) {
-      const x = this.findVacentPos()[0], y = this.findVacentPos()[1]
+      const [ x, y ] = vacentPos;
       blockNum[x][y] = val;
       this.setState({ blockNum })
     } else {
