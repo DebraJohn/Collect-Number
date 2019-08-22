@@ -8,7 +8,8 @@ import { numberToIcon } from './numberToIcon'
 export default class CollectBoard extends React.Component {
   constructor() {
     super();
-    this.vacentArea = 9
+    this.colNum = 3
+    this.vacentArea = this.colNum * this.colNum
     this.state = {
       blockNum: getGame('testPlayer1') || [
         [1, 0, 0],
@@ -24,11 +25,13 @@ export default class CollectBoard extends React.Component {
     const { blockNum, toggle } = this.state;
     const blocks = blockNum.map((row, vIndex) => (
       row.map((item, hIndex) => (
-        <div className="block" key={vIndex * 3 + hIndex} onClick={() => this.handleChess(vIndex, hIndex)}>
+        <div className="block" key={vIndex * this.colNum + hIndex} onClick={() => this.handleChess(vIndex, hIndex)}>
           { item ? 
-            <span className={`number${this.isArrayEqual(this.prevPos, [vIndex, hIndex]) && toggle ? ' lifted': ''}`}>
-              <i className={`icon ${numberToIcon[item]}`}></i>
-            </span>
+            <div>
+              <span className={`number${this.isArrayEqual(this.prevPos, [vIndex, hIndex]) && toggle ? ' lifted': ''}`}>
+                <i className={`icon ${numberToIcon[item]}`}></i>
+              </span>
+            </div>
           : '' }
         </div>))
     ))
@@ -56,9 +59,9 @@ export default class CollectBoard extends React.Component {
     if (this.isArrayEqual(currentPos, targetPos)) return // 拿起和放下如果是相同位置 则不处理
 
     const { blockNum } = this.state;
-    const cX = currentPos[0], cY = [currentPos[1]]
-    const tX = targetPos[0], tY = [targetPos[1]]
-    const currentValue = blockNum[cX][cY], targetValue = blockNum[tX][tY]
+    const [ cX, cY ] = currentPos;
+    const [ tX, tY ] = targetPos;
+    const currentValue = blockNum[cX][cY], targetValue = blockNum[tX][tY];
 
     // 相同数字合并，不同数字交换位置
     blockNum[cX][cY] = currentValue !== targetValue 
@@ -77,7 +80,7 @@ export default class CollectBoard extends React.Component {
     const { blockNum } = this.state
     const vacentPos = this.findVacentPos()
     if (vacentPos) {
-      const x = this.findVacentPos()[0], y = this.findVacentPos()[1]
+      const [ x, y ] = vacentPos;
       blockNum[x][y] = val;
       this.setState({ blockNum })
     } else {
