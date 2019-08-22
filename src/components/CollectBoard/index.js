@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css'
 import Emitter from '../../core/event'
 import { saveGame, getGame } from '../../core/storage'
-import { createRandomNumber } from '../../core/chance'
+// import { createRandomNumber } from '../../core/chance'
 import { numberToIcon } from './numberToIcon'
 
 export default class CollectBoard extends React.Component {
@@ -16,27 +16,29 @@ export default class CollectBoard extends React.Component {
         [0, 0, 0],
         [0, 0, 0]
       ],
-      toggle: 0
+      toggle: 0,
+      failed: false
     }
     this.prevPos = []
     this.toggle = 0 // 1-拿起  0-放下
   }
   render() {
-    const { blockNum, toggle } = this.state;
+    const { blockNum, toggle,failed } = this.state;
     const blocks = blockNum.map((row, vIndex) => (
       row.map((item, hIndex) => (
         <div className="block" key={vIndex * this.colNum + hIndex} onClick={() => this.handleChess(vIndex, hIndex)}>
           { item ? 
-            <div>
-              <span className={`number${this.isArrayEqual(this.prevPos, [vIndex, hIndex]) && toggle ? ' lifted': ''}`}>
+            <div className="itemWrap">
+              <div className={`foodIcon${this.isArrayEqual(this.prevPos, [vIndex, hIndex]) && toggle ? ' lifted': ''}`}>
                 <i className={`icon ${numberToIcon[item]}`}></i>
-              </span>
+              </div>
+              <span className="number">{item}</span>
             </div>
           : '' }
         </div>))
     ))
     return <div className="collect-board">
-      {blocks}
+      {failed ? '游戏结束，请重置' : blocks}
     </div>
   }
   componentDidMount() {
@@ -45,9 +47,10 @@ export default class CollectBoard extends React.Component {
     });
     this.deleteListener = Emitter.addListener('deleteNumber', () => {
       this.setState({
-        blockNum: [[0, 0, 0],
+        blockNum: [[1, 0, 0],
         [0, 0, 0],
-        [0, 0, 0]]
+        [0, 0, 0]],
+        failed: false
       })
     });
 
@@ -93,7 +96,11 @@ export default class CollectBoard extends React.Component {
     } else {
       // todo
       this.vacentArea = 0
+      if (Array.from(new Set(blockNum.flat())).length === 9) {
+        this.setState({failed: true})
+      }
     }
+    saveGame(blockNum)
   }
   findVacentPos() {
     const { blockNum } = this.state
